@@ -58,7 +58,7 @@ alt.renderers.set_embed_options(theme='dark')
 st.title('Prism Forge - Phase 1')
 st.text('')
 
-col1, col2, col3, col4 = st.columns([1,2,2,2])
+col1, col2, col3, col4, col5 = st.columns([1,2,2,2,2])
 
 with col2:
     st.metric(label="Total UST deposited", value=f"${int(tot_deposits/1000)}k", delta=+1765)
@@ -70,11 +70,15 @@ with col3:
 with col4:
     st.metric(label="Transactions", value=n_txs, delta=57,
      delta_color="off")
+
+with col5:
+    st.metric(label="Estimated price", value=f"$2.5", delta=0.57,delta_color="off")
 ####
 hourly_stats_df = hourly_stats_df.rename(columns=cols_dict)
 col1, col2 = st.columns(2)
 with col1:
     st.subheader('Transactions over time')
+    st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
     c = alt.Chart(hourly_stats_df).mark_bar().encode(
         x=alt.X(cols_dict['HR']+':T', axis=alt.Axis(
                             tickCount=10, labelAngle=0, tickBand = 'center')),
@@ -86,6 +90,7 @@ with col1:
     st.altair_chart(c, use_container_width=True)
 with col2:
     st.subheader('Users over time')
+    st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
     c = alt.Chart(hourly_stats_df).mark_bar().encode(
         x=alt.X(cols_dict['HR']+':T', axis=alt.Axis(tickCount=10, 
                                                     labelAngle=0, tickBand = 'center')),
@@ -100,6 +105,7 @@ hourly_stats_df = hourly_stats_df.rename(columns=cols_dict)
 col1, col2 = st.columns(2)
 with col1:
     st.subheader('User deposits distribution')
+    st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
     deposits_bucket_df['bucket_name']=deposits_bucket_df.BUCKET.map({0:'-$0',1:'$0-$10',2:'$10-$100',3:'$100-$1k',4:'$1k-$10k',
                                 5:'$10k-$100k',6:'$100k-$1m',7:'$1m-'})
     deposits_bucket_df.sort_values(by='BUCKET')
@@ -115,6 +121,7 @@ with col1:
     st.altair_chart(c, use_container_width=True)
 with col2:
     st.subheader('N° of transactions per wallet')
+    st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
     df = user_stats_df.rename(columns=cols_dict)[cols_dict['DEPOSIT_TXS']]\
         .value_counts().sort_index().reset_index().rename(columns={'index':cols_dict['DEPOSIT_TXS'],cols_dict['DEPOSIT_TXS']:'N° of users'})
     print(df.columns)
@@ -125,7 +132,28 @@ with col2:
     )
     st.altair_chart(c, use_container_width=True)
 ####
+####
+prev_launches = '22bf0295-9733-46d6-ab98-1cb753552c6b'
+prev_launches_df = claim(prev_launches) 
+st.subheader('User participation previous launches')
+st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
+c = alt.Chart(prev_launches_df).mark_bar().encode(
+    x=alt.X('TYPE', axis=alt.Axis(
+                            tickCount=10, labelAngle=0, tickBand = 'center')),
+    y='PARTICIPANTS',
+    color=alt.Color('PARTICIPATE_TYPE',legend=alt.Legend(
+        orient='none',
+        padding=10,
+        legendY=-10,
+        direction='horizontal')),
+    tooltip=['TYPE','PARTICIPANTS','PARTICIPATE_TYPE']
+).properties(height=400).configure_axisX(
+    labelAngle=-10
+).configure_view(strokeOpacity=0)
+st.altair_chart(c, use_container_width=True)
+####
 st.subheader('Deposit distribution per balance')
+st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
 df = deposit_balance_df.rename(columns=cols_dict)
 c =alt.Chart(df.head(5000)).mark_point().encode(
   y=cols_dict['AMOUNT'],
