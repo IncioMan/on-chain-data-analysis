@@ -111,7 +111,7 @@ with col1:
         color='#fab0ba'
     ).properties(height=300).configure_axisX(
         labelAngle=0
-    ).configure_view(strokeOpacity=0).interactive()
+    ).configure_view(strokeOpacity=0)
     st.altair_chart(c, use_container_width=True)
 with col2:
     st.subheader('N° of transactions per wallet')
