@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import altair as alt
 from constants import cols_dict
-from data import user_stats_df,hourly_stats_df, hourly_new_users_df,deposits_bucket_df,deposit_balance_df,prev_launches_df
+from data import user_stats_df,hourly_stats_df, wallet_age_df, hourly_new_users_df,deposits_bucket_df,deposit_balance_df,prev_launches_df
 
 
 txs_over_time_chart = alt.Chart(hourly_stats_df).mark_bar().encode(
@@ -74,3 +74,12 @@ tooltip=[cols_dict['SENDER'], cols_dict['AMOUNT'],
     cols_dict['AVG_BALANCE_USD'],
     cols_dict['N_TXS']]
 ).interactive()
+###
+wallet_age_df = wallet_age_df.rename(columns=cols_dict)
+wallet_age_chart = alt.Chart(wallet_age_df).mark_bar().encode(
+    x=alt.X(cols_dict['MIN_DATE']+":T", axis=alt.Axis(tickCount=10, labelAngle=0)),
+    y=cols_dict['ADDRESS_COUNT'],
+    tooltip=[cols_dict['MIN_DATE']+":T",cols_dict['ADDRESS_COUNT']]
+).configure_mark(
+    color='#ffde85'
+).configure_view(strokeOpacity=0)

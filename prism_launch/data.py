@@ -27,6 +27,10 @@ index[-2]
 next_last_users = df.loc[index[-2]].cumsum_new_users
 hourly_new_users_df = hourly_new_users_df.rename(columns=cols_dict)
 
+wallet_age = 'fb964d4e-3e67-4662-b9b1-413262737bcb'
+wallet_age_df = claim(wallet_age)
+wallet_age_df = wallet_age_df.rename(columns=cols_dict)
+
 
 hourly_stats = '520fb3b6-a968-4742-bf0a-31cbb67b6b05'
 hourly_stats_df = claim(hourly_stats)

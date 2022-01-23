@@ -18,5 +18,7 @@ cols_dict = {
     'cumsum_ust':'Cumulative UST amount',
     'NEW_USERS': 'New Users',
     'cumsum_new_users': 'Cumulative new users',
-    'TIME': 'Time'
+    'TIME': 'Time',
+    'MIN_DATE':'Date wallet creation',
+    'ADDRESS_COUNT':'Number of wallets'
 }
