@@ -14,5 +14,9 @@ cols_dict = {
     'N_TXS':'N° of txs',
     'SENDER':'User address',
     'N_USERS':'N° of users',
-    'bucket_name':'Deposit range'
+    'bucket_name':'Deposit range',
+    'cumsum_ust':'Cumulative UST amount',
+    'NEW_USERS': 'New Users',
+    'cumsum_new_users': 'Cumulative new users',
+    'TIME': 'Time'
 }
