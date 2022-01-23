@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import altair as alt
-from vega_datasets import data
 
 st.set_page_config(page_title="Prism Forge - Analytics",layout='wide')
 
