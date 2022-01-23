@@ -49,7 +49,9 @@ n_users = user_stats_df.SENDER.nunique()
 tot_deposits = int(user_stats_df.DEPOSIT_AMOUNT.sum() - user_stats_df.WITHDRAWN_AMOUNT.sum())
 
 prev_launches = '22bf0295-9733-46d6-ab98-1cb753552c6b'
-prev_launches_df = claim(prev_launches) 
+prev_launches_df = claim(prev_launches)
+prev_launches_df = prev_launches_df.rename(columns=cols_dict)
+
 deposit_balance_df = deposit_balance_df.rename(columns=cols_dict)
 deposits_bucket_df['bucket_name']=deposits_bucket_df.BUCKET.map({0:'-$0',1:'$0-$10',2:'$10-$100',3:'$100-$1k',4:'$1k-$10k',
                                 5:'$10k-$100k',6:'$100k-$1m',7:'$1m-'})

@@ -9,7 +9,7 @@ from data import tot_deposits,\
 
 st.set_page_config(page_title="Prism Forge - Analytics",layout='wide')
 alt.renderers.set_embed_options(theme='dark')
-original_title = '<p style="font-family:Courier; font-size: 50px;">Prism Forge - Phase 1</p>'
+original_title = '<p style="font-size: 50px;">Prism Forge - Phase 1</p>'
 st.markdown(original_title, unsafe_allow_html=True)
 st.text('')
 
@@ -53,13 +53,13 @@ with col2:
     st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
     st.altair_chart(n_tx_wallet_chart, use_container_width=True)
 ####
-st.subheader('Participants wallet age')
-st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
-st.altair_chart(wallet_age_chart, use_container_width=True)
-####
 st.subheader('User participation previous launches')
 st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
 st.altair_chart(user_part_prev_launches_chart, use_container_width=True)
+####
+st.subheader('Participants wallet age')
+st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
+st.altair_chart(wallet_age_chart, use_container_width=True)
 ####
 st.subheader('Deposit distribution per balance')
 st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")

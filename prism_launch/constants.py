@@ -20,5 +20,8 @@ cols_dict = {
     'cumsum_new_users': 'Cumulative new users',
     'TIME': 'Time',
     'MIN_DATE':'Date wallet creation',
-    'ADDRESS_COUNT':'Number of wallets'
+    'ADDRESS_COUNT':'Number of wallets',
+    'TYPE':'Protocol launch',
+    'PARTICIPATE_TYPE':'User participation',
+    'PARTICIPANTS':'Number of participants'
 }

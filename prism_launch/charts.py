@@ -53,14 +53,14 @@ n_tx_wallet_chart = alt.Chart(df).mark_line(point = True).encode(
 )
 ####
 user_part_prev_launches_chart = alt.Chart(prev_launches_df).mark_bar().encode(
-x=alt.X('TYPE', axis=alt.Axis(labelAngle=0, tickBand = 'center')),
-y='PARTICIPANTS',
-color=alt.Color('PARTICIPATE_TYPE',legend=alt.Legend(
+x=alt.X(cols_dict['TYPE'], axis=alt.Axis(labelAngle=0, tickBand = 'center')),
+y=cols_dict['PARTICIPANTS'],
+color=alt.Color(cols_dict['PARTICIPATE_TYPE'],legend=alt.Legend(
     orient='none',
     padding=10,
     legendY=-10,
     direction='horizontal')),
-tooltip=['TYPE','PARTICIPANTS','PARTICIPATE_TYPE']
+tooltip=[cols_dict['TYPE'],cols_dict['PARTICIPANTS'],cols_dict['PARTICIPATE_TYPE']]
 ).properties(height=400).configure_axisX(
 labelAngle=-10
 ).configure_view(strokeOpacity=0)
