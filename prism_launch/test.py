@@ -138,8 +138,7 @@ prev_launches_df = claim(prev_launches)
 st.subheader('User participation previous launches')
 st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
 c = alt.Chart(prev_launches_df).mark_bar().encode(
-    x=alt.X('TYPE', axis=alt.Axis(
-                            tickCount=10, labelAngle=0, tickBand = 'center')),
+    x=alt.X('TYPE', axis=alt.Axis(labelAngle=0, tickBand = 'center')),
     y='PARTICIPANTS',
     color=alt.Color('PARTICIPATE_TYPE',legend=alt.Legend(
         orient='none',
