@@ -76,10 +76,17 @@ tooltip=[cols_dict['SENDER'], cols_dict['AMOUNT'],
 ).interactive()
 ###
 wallet_age_df = wallet_age_df.rename(columns=cols_dict)
-wallet_age_chart = alt.Chart(wallet_age_df).mark_bar().encode(
+df2 = wallet_age_df.head()
+df2['fake'] = 100
+df2
+c = alt.Chart(wallet_age_df).mark_bar(color='#ffde85').encode(
     x=alt.X(cols_dict['MIN_DATE']+":T", axis=alt.Axis(tickCount=10, labelAngle=0)),
     y=cols_dict['ADDRESS_COUNT'],
-    tooltip=[cols_dict['MIN_DATE']+":T",cols_dict['ADDRESS_COUNT']]
-).configure_mark(
-    color='#ffde85'
-).configure_view(strokeOpacity=0)
+    tooltip=[cols_dict['MIN_DATE'],cols_dict['ADDRESS_COUNT']]
+)
+
+c2 = alt.Chart(df2).mark_rule(color='red').encode(
+    x=cols_dict['MIN_DATE']+':T'
+)
+
+wallet_age_chart = (c + c2).configure_view(strokeOpacity=0)
