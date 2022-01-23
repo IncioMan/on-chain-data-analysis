@@ -83,4 +83,10 @@ deposit_balance_df = deposit_balance_df.rename(columns=cols_dict)
 deposits_bucket_df['bucket_name']=deposits_bucket_df.BUCKET.map({0:'-$0',1:'$0-$10',2:'$10-$100',3:'$100-$1k',4:'$1k-$10k',
                                 5:'$10k-$100k',6:'$100k-$1m',7:'$1m-'})
 deposits_bucket_df.sort_values(by='BUCKET')
+
+dates_to_mark = pd.DataFrame([
+['2021-03-04', '2021-03-11',120,'Anchor launch'],
+['2021-09-24', '2021-10-01',120,'Columbus 5'],
+['2022-01-17', '2022-01-24',120,'Prism launch']], columns=['text_date','date','height','text']
+)
     

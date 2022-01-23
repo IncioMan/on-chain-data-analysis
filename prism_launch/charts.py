@@ -3,7 +3,9 @@ import pandas as pd
 import numpy as np
 import altair as alt
 from constants import cols_dict
-from data import user_stats_df,hourly_stats_df, wallet_age_df, hourly_new_users_df,deposits_bucket_df,deposit_balance_df,prev_launches_df
+from data import user_stats_df,hourly_stats_df, wallet_age_df,\
+                 hourly_new_users_df,deposits_bucket_df,\
+                 deposit_balance_df,prev_launches_df,dates_to_mark
 
 
 txs_over_time_chart = alt.Chart(hourly_stats_df).mark_bar().encode(
@@ -84,13 +86,22 @@ df2 = wallet_age_df.head()
 df2['fake'] = 100
 df2
 c = alt.Chart(wallet_age_df).mark_bar(color='#ffde85').encode(
-    x=alt.X(cols_dict['MIN_DATE']+":T", axis=alt.Axis(tickCount=10, labelAngle=0)),
+    x=alt.X(cols_dict['MIN_DATE']+":T", axis=alt.Axis(tickCount=10, labelAngle=0, title=cols_dict['ADDRESS_COUNT'])),
     y=cols_dict['ADDRESS_COUNT']+":Q",
-    tooltip=[cols_dict['MIN_DATE'],cols_dict['ADDRESS_COUNT']]
+    tooltip=[cols_dict['MIN_DATE']+":T",cols_dict['ADDRESS_COUNT']]
 )
 
-c2 = alt.Chart(df2).mark_rule(color='red').encode(
-    x=cols_dict['MIN_DATE']+':T'
+c2 = alt.Chart(dates_to_mark).mark_rule(color='#fab0ba').encode(
+    x=alt.X('date'+':T',axis=alt.Axis(labels=False,title=''))
 )
 
-wallet_age_chart = (c + c2).configure_view(strokeOpacity=0)
+c3 = alt.Chart(dates_to_mark).mark_text(
+    color='#fab0ba',
+    angle=270
+).encode(
+    x=alt.X('text_date'+':T',axis=alt.Axis(labels=False,title='')),
+    y='height',
+    text='text'
+)
+
+wallet_age_chart = (c + c2 + c3).configure_view(strokeOpacity=0).properties(width=600)
