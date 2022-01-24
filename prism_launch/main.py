@@ -30,39 +30,40 @@ with col5:
     st.metric(label="Estimated price", value=f"${round(tot_deposits/70000000,2)}", delta=round(((tot_deposits-next_last_ust))/70000000,2),delta_color="off")
 ####
 st.subheader('UST deposited over time')
-st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
+st.markdown("""This graph shows the cumulative net UST deposits into the Prism Forge. 70 million PRISM tokens are allocated to the Prism Forge and will be distributed to depositors based on their net UST contributed during this phase.""")
 st.altair_chart(cum_ust_chart, use_container_width=True)
 ####
 col1, col2 = st.columns(2)
 with col1:
     st.subheader('Transactions over time')
-    st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
+    st.markdown("""This graph represents the number of deposits and withdrawals every hour in the Prism Forge.""")
     st.altair_chart(txs_over_time_chart, use_container_width=True)
 with col2:
     st.subheader('Users over time')
-    st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
+    st.markdown("""The graph below counts the total number of users who have interacted with the Prism Forge since launch.""")
     st.altair_chart(users_over_time_chart, use_container_width=True)
 ####
 col1, col2 = st.columns(2)
 with col1:
     st.subheader('User deposits distribution')
-    st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
+    st.markdown("""How much UST are people depositing into the Forge each time? Well, this graph shows the distribution of deposits based on several ranges.""")
     st.altair_chart(users_dep_distr_chart, use_container_width=True)
 with col2:
-    st.subheader('N° of transactions per wallet')
-    st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
+    st.subheader('Number of transactions per wallet')
+    st.markdown("""Are people depositing once or multiple times on average? Here, we have the distribution of deposit transactions into the Forge.
+    """)
     st.altair_chart(n_tx_wallet_chart, use_container_width=True)
 ####
-st.subheader('User participation previous launches')
-st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
+st.subheader('Participants from previous bootstrapping or community farming events')
+st.markdown("""For those who have participated in these previous launch events, how many of them have participated in the Prism Forge so far?""")
 st.altair_chart(user_part_prev_launches_chart, use_container_width=True)
 ####
-st.subheader('Participants wallet age')
-st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
+st.subheader('Participants\' wallet age')
+st.markdown("""Are the participants mainly Terra OGs? This graph shows the number of wallets participating in the Prism Forge based on the date their wallets are created.""")
 st.altair_chart(wallet_age_chart, use_container_width=True)
 ####
 st.subheader('Deposit distribution per balance')
-st.markdown("""Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.""")
+st.markdown("""This graph depicts the distribution of UST deposited against the average balance of the respective wallets. Essentially we are asking the question - are wallets with high average balances depositing more UST or vice versa?""")
 st.altair_chart(dep_dist_balance_chart, use_container_width=True)
 ###
 st.markdown("Built with love for the 🌖 community by [IncioMan](https://twitter.com/IncioMan) and [sam](https://twitter.com/sem1d5) - with the support of [flipsidecrypto](https://flipsidecrypto.xyz/)")

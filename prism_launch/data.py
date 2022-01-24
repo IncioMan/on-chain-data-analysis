@@ -87,6 +87,8 @@ deposits_bucket_df.sort_values(by='BUCKET')
 dates_to_mark = pd.DataFrame([
 ['2021-03-04', '2021-03-11',120,'Anchor launch'],
 ['2021-09-24', '2021-10-01',120,'Columbus 5'],
-['2022-01-17', '2022-01-24',120,'Prism launch']], columns=['text_date','date','height','text']
+['2021-12-12', '2021-12-19',120,'Astroport launch'], 
+['2022-01-17', '2022-01-24',120,'Prism launch']], 
+columns=['text_date','date','height','text']
 )
     
