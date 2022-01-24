@@ -15,7 +15,7 @@ col1, col2 = st.columns([1,12])
 with col2:
     st.markdown(original_title, unsafe_allow_html=True)
 with col1:
-    st.image('https://github.com/IncioMan/on-chain-data-analysis/blob/prism_launch/prism_launch/images/prism_white_small.png')
+    st.image('https://raw.githubusercontent.com/IncioMan/on-chain-data-analysis/prism_launch/prism_launch/images/prism_white_small.png')
 st.text('')
 st.text('')
 st.text('')
