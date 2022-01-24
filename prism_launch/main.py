@@ -36,11 +36,11 @@ st.altair_chart(cum_ust_chart, use_container_width=True)
 col1, col2 = st.columns(2)
 with col1:
     st.subheader('Transactions over time')
-    st.markdown("""This graph represents the number of deposits and withdrawals every hour in the Prism Forge.""")
+    st.markdown("""This graph represents the number of deposits and withdrawals performed every hour in the Prism Forge.         """)
     st.altair_chart(txs_over_time_chart, use_container_width=True)
 with col2:
     st.subheader('Users over time')
-    st.markdown("""The graph below counts the total number of users who have interacted with the Prism Forge since launch.""")
+    st.markdown("""How does the total number of users who have interacted with the Prism Forge since launch look over time?""")
     st.altair_chart(users_over_time_chart, use_container_width=True)
 ####
 col1, col2 = st.columns(2)
@@ -64,7 +64,7 @@ st.altair_chart(wallet_age_chart, use_container_width=True)
 ####
 st.subheader('Deposit distribution per balance')
 st.markdown("""This graph depicts the distribution of UST deposited against the average balance of the respective wallets. Essentially we are asking the question - are wallets with high average balances depositing more UST or vice versa?
-You can interact with the graph by zooming in and out to explore specific ranges.""")
+You can interact with the graph by zooming in and out to explore specific ranges. Zoom all the way out to see outliers.""")
 st.altair_chart(dep_dist_balance_chart, use_container_width=True)
 ###
 st.markdown("Built with love for the 🌖 community by [IncioMan](https://twitter.com/IncioMan) and [sam](https://twitter.com/sem1d5) - with the support of [flipsidecrypto](https://flipsidecrypto.xyz/)")

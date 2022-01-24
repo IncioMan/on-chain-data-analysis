@@ -49,9 +49,9 @@ cum_ust_chart = alt.Chart(hourly_stats_df.rename(columns=cols_dict)).mark_line(p
 df = user_stats_df.rename(columns=cols_dict)[cols_dict['DEPOSIT_TXS']]\
     .value_counts().sort_index().reset_index().rename(columns={'index':cols_dict['DEPOSIT_TXS'],cols_dict['DEPOSIT_TXS']:'N° of users'})
 n_tx_wallet_chart = alt.Chart(df).mark_line(point = True, color='#88D5D5').encode(
-    y=alt.Y('N° of users:O', sort="descending"),
+    y=alt.Y('N° of users:Q', sort="ascending"),
     x=cols_dict['DEPOSIT_TXS']+":O",
-    tooltip=['N° of users:O',cols_dict['DEPOSIT_TXS']+":Q"]
+    tooltip=['N° of users:Q',cols_dict['DEPOSIT_TXS']+":Q"]
 ).properties(height=300).configure_view(strokeOpacity=0)
 ####
 user_part_prev_launches_chart = alt.Chart(prev_launches_df).mark_bar().encode(
