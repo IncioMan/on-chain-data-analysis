@@ -4,11 +4,14 @@ import numpy as np
 import altair as alt
 from constants import cols_dict
 from charts import *
+import requests
 from data import tot_deposits,\
             n_users, n_txs,next_last_users, next_last_ust, next_last_txs
 from PIL import Image
 
-st.set_page_config(page_title="Prism Forge - Analytics",layout='wide')
+st.set_page_config(page_title="Prism Forge - Analytics",\
+        page_icon=Image.open(requests.get('https://raw.githubusercontent.com/IncioMan/on-chain-data-analysis/prism_launch/prism_launch/images/xPRISM.png',stream=True).raw),\
+        layout='wide')
 alt.renderers.set_embed_options(theme='dark')
 original_title = '<p style="font-size: 60px;">Prism Forge - Phase 1</p>'
 col1, col2 = st.columns([1,12])
@@ -80,8 +83,8 @@ st.markdown("""
 <style>
     .block-container
     {
-        padding-left: 9rem;
-        padding-right: 9rem;
+        padding-left: 10rem;
+        padding-right: 10rem;
         padding-bottom: 1rem;
     }
 </style>
