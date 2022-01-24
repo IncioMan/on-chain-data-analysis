@@ -6,11 +6,19 @@ from constants import cols_dict
 from charts import *
 from data import tot_deposits,\
             n_users, n_txs,next_last_users, next_last_ust, next_last_txs
+from PIL import Image
 
-st.set_page_config(page_title="Prism Forge - Analytics",layout='wide')
+st.set_page_config(page_title="Prism Forge - Analytics",page_icon=Image.open('images/xPRISM.png'),layout='wide')
 alt.renderers.set_embed_options(theme='dark')
-original_title = '<p style="font-size: 50px;">Prism Forge - Phase 1</p>'
-st.markdown(original_title, unsafe_allow_html=True)
+original_title = '<p style="font-size: 60px;">Prism Forge - Phase 1</p>'
+col1, col2 = st.columns([1,12])
+with col2:
+    st.markdown(original_title, unsafe_allow_html=True)
+with col1:
+    image = Image.open('images/prism_white_small.png')
+    st.image(image)
+st.text('')
+st.text('')
 st.text('')
 
 col1, col2, col3, col4, col5 = st.columns([1,2,2,2,2])
@@ -67,4 +75,15 @@ st.markdown("""This graph depicts the distribution of UST deposited against the 
 You can interact with the graph by zooming in and out to explore specific ranges. Zoom all the way out to see outliers.""")
 st.altair_chart(dep_dist_balance_chart, use_container_width=True)
 ###
+st.text('')
 st.markdown("Built with love for the 🌖 community by [IncioMan](https://twitter.com/IncioMan) and [sam](https://twitter.com/sem1d5) - with the support of [flipsidecrypto](https://flipsidecrypto.xyz/)")
+st.markdown("""
+<style>
+    .block-container
+    {
+        padding-left: 9rem;
+        padding-right: 9rem;
+        padding-bottom: 1rem;
+    }
+</style>
+""", unsafe_allow_html=True)
