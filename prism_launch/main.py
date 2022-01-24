@@ -8,14 +8,14 @@ from data import tot_deposits,\
             n_users, n_txs,next_last_users, next_last_ust, next_last_txs
 from PIL import Image
 
-st.set_page_config(page_title="Prism Forge - Analytics",page_icon=Image.open('images/xPRISM.png'),layout='wide')
+st.set_page_config(page_title="Prism Forge - Analytics",page_icon=Image.open('./images/xPRISM.png'),layout='wide')
 alt.renderers.set_embed_options(theme='dark')
 original_title = '<p style="font-size: 60px;">Prism Forge - Phase 1</p>'
 col1, col2 = st.columns([1,12])
 with col2:
     st.markdown(original_title, unsafe_allow_html=True)
 with col1:
-    image = Image.open('images/prism_white_small.png')
+    image = Image.open('./images/prism_white_small.png')
     st.image(image)
 st.text('')
 st.text('')
