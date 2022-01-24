@@ -48,7 +48,7 @@ cum_ust_chart = alt.Chart(hourly_stats_df.rename(columns=cols_dict)).mark_line(p
 ####
 df = user_stats_df.rename(columns=cols_dict)[cols_dict['DEPOSIT_TXS']]\
     .value_counts().sort_index().reset_index().rename(columns={'index':cols_dict['DEPOSIT_TXS'],cols_dict['DEPOSIT_TXS']:'N° of users'})
-n_tx_wallet_chart = alt.Chart(df).mark_line(point = True).encode(
+n_tx_wallet_chart = alt.Chart(df).mark_line(point = True, color='#88D5D5').encode(
     y=alt.Y('N° of users:O', sort="descending"),
     x=cols_dict['DEPOSIT_TXS']+":O",
     tooltip=['N° of users:O',cols_dict['DEPOSIT_TXS']+":Q"]
@@ -57,7 +57,9 @@ n_tx_wallet_chart = alt.Chart(df).mark_line(point = True).encode(
 user_part_prev_launches_chart = alt.Chart(prev_launches_df).mark_bar().encode(
 x=alt.X(cols_dict['TYPE']+":N", axis=alt.Axis(labelAngle=0, tickBand = 'center')),
 y=cols_dict['PARTICIPANTS']+":Q",
-color=alt.Color(cols_dict['PARTICIPATE_TYPE'],legend=alt.Legend(
+color=alt.Color(cols_dict['PARTICIPATE_TYPE'],
+    scale=alt.Scale(scheme='pastel1'),
+    legend=alt.Legend(
     orient='none',
     padding=10,
     legendY=-10,
@@ -71,9 +73,9 @@ if(len(deposit_balance_df)>5000):
     df = deposit_balance_df.sample(n=5000, random_state=1)
 else:
     df = deposit_balance_df
-dep_dist_balance_chart =alt.Chart(df).mark_point().encode(
-y=cols_dict['AMOUNT']+":Q",
-x=cols_dict['AVG_BALANCE_USD']+":Q",
+dep_dist_balance_chart =alt.Chart(df).mark_point(opacity=1, filled=True).encode(
+y=alt.Y(cols_dict['AMOUNT']+":Q",scale=alt.Scale(domain=(0, 100000))),
+x=alt.X(cols_dict['AVG_BALANCE_USD']+":Q",scale=alt.Scale(domain=(0, 1000000))),
 color=alt.Color(cols_dict['N_TXS'],
     scale=alt.Scale(scheme='yelloworangered')),
 tooltip=[cols_dict['SENDER'], cols_dict['AMOUNT'],

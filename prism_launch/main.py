@@ -63,7 +63,8 @@ st.markdown("""Are the participants mainly Terra OGs? This graph shows the numbe
 st.altair_chart(wallet_age_chart, use_container_width=True)
 ####
 st.subheader('Deposit distribution per balance')
-st.markdown("""This graph depicts the distribution of UST deposited against the average balance of the respective wallets. Essentially we are asking the question - are wallets with high average balances depositing more UST or vice versa?""")
+st.markdown("""This graph depicts the distribution of UST deposited against the average balance of the respective wallets. Essentially we are asking the question - are wallets with high average balances depositing more UST or vice versa?
+You can interact with the graph by zooming in and out to explore specific ranges.""")
 st.altair_chart(dep_dist_balance_chart, use_container_width=True)
 ###
 st.markdown("Built with love for the 🌖 community by [IncioMan](https://twitter.com/IncioMan) and [sam](https://twitter.com/sem1d5) - with the support of [flipsidecrypto](https://flipsidecrypto.xyz/)")
