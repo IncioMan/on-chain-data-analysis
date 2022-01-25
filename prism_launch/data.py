@@ -41,6 +41,9 @@ wallet_age_df = claim(wallet_age)
 hourly_stats_df = claim(hourly_stats)
 prev_launches_df = claim(prev_launches)
 
+user_stats_df['DEPOSIT_NET'] = user_stats_df.DEPOSIT_AMOUNT - user_stats_df.WITHDRAWN_AMOUNT
+top_depositors = user_stats_df.sort_values(by='DEPOSIT_NET', ascending=False).head(5)[['SENDER','DEPOSIT_NET']]\
+             .set_index('SENDER').rename(columns=cols_dict)
 
 hourly_new_users_df = claim(hourly_new_users)
 hourly_new_users_df['cumsum_new_users'] = hourly_new_users_df.sort_values(by='TIME').NEW_USERS.cumsum()
@@ -91,4 +94,3 @@ dates_to_mark = pd.DataFrame([
 ['2022-01-17', '2022-01-24',120,'Prism launch']], 
 columns=['text_date','date','height','text']
 )
-    

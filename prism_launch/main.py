@@ -5,7 +5,7 @@ import altair as alt
 from constants import cols_dict
 from charts import *
 import requests
-from data import tot_deposits,\
+from data import tot_deposits,top_depositors,\
             n_users, n_txs,next_last_users, next_last_ust, next_last_txs
 from PIL import Image
 
@@ -71,6 +71,11 @@ st.altair_chart(user_part_prev_launches_chart, use_container_width=True)
 st.subheader('Participants\' wallet age')
 st.markdown("""Are the participants mainly Terra OGs? This graph shows the number of wallets participating in the Prism Forge based on the date their wallets are created.""")
 st.altair_chart(wallet_age_chart, use_container_width=True)
+###
+st.subheader('Top depositors')
+st.markdown("""Let's now see the top 5 addresses which have deposited the most UST. If you are curious, you can 
+look these addresses up on [ET Finder](https://finder.extraterrestrial.money/).""")
+st.table(top_depositors)
 ####
 st.subheader('Deposit distribution per balance')
 st.markdown("""This graph depicts the distribution of UST deposited against the average balance of the respective wallets. Essentially we are asking the question - are wallets with high average balances depositing more UST or vice versa?
